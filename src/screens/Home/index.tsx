@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, StatusBar } from 'react-native';
+import {  StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+
+import {useNavigation} from "@react-navigation/native"
 
 import Car from '../../components/Car';
 
@@ -8,8 +10,15 @@ import Logo from "../../assets/logo.svg"
 
 import { Container, Header, HeaderContent, TotalCarsTitle, CarList } from './styles';
 
-export const Home = () => {
 
+const Home = () => {
+
+  const navigation = useNavigation<any>()
+
+  const handleCarDetails = () => {
+    navigation.navigate("CarDetails")
+  }
+ 
   const carData = {
     brand: "Audi",
     name: "RS 5 Coupé",
@@ -36,9 +45,11 @@ export const Home = () => {
     <CarList
       data={[1,2,3, 4, 5, 6, 7]}
       keyExtractor={item => String(item)}
-      renderItem={({item}) => <Car data={carData} />}
+      renderItem={({item}) => <Car onPress={handleCarDetails} data={carData} />}
       />
 
     </Container>
   )
 }
+
+export default Home

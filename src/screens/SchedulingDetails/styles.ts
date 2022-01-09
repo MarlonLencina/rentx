@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { getBottomSpace, getStatusBarHeight } from "react-native-iphone-x-helper";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
@@ -107,7 +108,7 @@ margin-top: 16px;
 
 `
 
-export const Footer = styled.View`
+export const Footer = styled(GestureHandlerRootView)`
 
 width: 100%;
 background-color: ${({theme}) => theme.colors.background_secundary};

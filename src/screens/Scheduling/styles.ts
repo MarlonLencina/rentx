@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
@@ -85,7 +86,7 @@ export const Content = styled.ScrollView.attrs({
 
 
 
-export const Footer = styled.View`
+export const Footer = styled(GestureHandlerRootView)`
 
 padding: 24px;
 background-color: ${({theme}) => theme.colors.background_primary};

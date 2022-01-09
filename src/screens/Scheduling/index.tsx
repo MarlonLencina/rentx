@@ -2,6 +2,10 @@ import React from 'react';
 import { Container, Header, Title, RentalPeriod, DateInfo, DateTitle, DateValue, Content, Footer} from './styles';
 import { useTheme } from 'styled-components';
 
+import {
+    useNavigation
+} from '@react-navigation/native'
+
 import BackButton from '../../components/BackButton';
 
 import ArrowSvg from '../../assets/arrow.svg'
@@ -11,7 +15,13 @@ import Calendar from '../../components/Calendar';
 
 const Scheduling = () => {
 
+    const navigation = useNavigation<any>()
+
     const theme = useTheme()
+
+    const handleSchedulingDetails = () => {
+        navigation.navigate("SchedulingDetails")
+    }
 
     return (
         <Container>
@@ -50,7 +60,7 @@ const Scheduling = () => {
          </Content>
 
              <Footer>
-                 <Button title='Confirmar'/>
+                 <Button onPress={handleSchedulingDetails} title='Confirmar'/>
              </Footer>
 
         </Container>

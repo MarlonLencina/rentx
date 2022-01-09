@@ -2,6 +2,7 @@ import React from 'react';
 import BackButton from '../../components/BackButton';
 import Slider from '../../components/Slider';
 import Acessory from '../../components/Acessory';
+import {useNavigation} from "@react-navigation/native"
 
 
 import speed from '../../assets/speed.svg'
@@ -16,6 +17,13 @@ import people from '../../assets/people.svg'
 import Button from '../../components/Button';
 
 const CarDetails = () => {
+
+    const navigation = useNavigation<any>()
+
+    const handleCarScheduling = () => {
+        navigation.navigate("Scheduling")
+    }
+
   return (
       <Container>
           <Header>
@@ -61,7 +69,7 @@ const CarDetails = () => {
          </Content>
 
         <Footer>
-            <Button title='Confirmar' color=''/>
+            <Button onPress={handleCarScheduling} title='Escolher periodo do Aluguel' color=''/>
         </Footer>   
 
       </Container>

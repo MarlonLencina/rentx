@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
@@ -39,7 +40,7 @@ line-height: ${RFValue(25)}px;
 
 `
 
-export const Footer = styled.View`
+export const Footer = styled(GestureHandlerRootView)`
 
 width: 100%;
 align-items: center;

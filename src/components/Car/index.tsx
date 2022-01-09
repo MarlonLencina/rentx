@@ -1,9 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacityProps, View } from 'react-native';
 
  import { Container, Details, Brand, Name, About, Rent, Period, Price, Type, CarImage } from './styles';
 
  import Gasoline from "../../assets/gasoline.svg"
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 interface ICarData {
   brand: string;
@@ -15,13 +16,14 @@ interface ICarData {
    thumbnail: string;
 }
 
- interface Props {
-   data: ICarData;
+ interface Props extends RectButtonProps {
+  onPress: () => void
+  data: ICarData;
  }
 
-const Car = ({data}: Props) => {
+const Car = ({data, onPress, ...rest}: Props) => {
   return (
-    <Container>
+    <Container onPress={onPress} {...rest} >
         <Details>
           <Brand>{data.brand}</Brand>
           <Name>{data.name}</Name>

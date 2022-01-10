@@ -62,6 +62,8 @@ const SchedulingDetails = () => {
 
     const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod)
 
+    const [loading, setLoading] = useState(false)
+
     const route = useRoute()
     const {car, markedDates} = route.params as Params
 
@@ -72,6 +74,8 @@ const SchedulingDetails = () => {
     const handleCompleteScheduling = async () => {
 
 try {
+
+    setLoading(true)
 
     const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`)
 
@@ -92,8 +96,8 @@ try {
     
 } catch (error) {
     console.log(error)
-}
-      
+    setLoading(false)
+} 
     }
 
     const handleGoBack = () => {
@@ -186,7 +190,7 @@ try {
          </Content>
 
         <Footer>
-            <Button onPress={handleCompleteScheduling} title='Alugar Agora' color={theme.colors.success}/>
+            <Button loading={loading} enabled={!loading} onPress={handleCompleteScheduling} title='Alugar Agora' color={theme.colors.success}/>
         </Footer>   
 
       </Container>

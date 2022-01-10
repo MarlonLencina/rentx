@@ -1,10 +1,8 @@
 
 
-import React, { useState } from 'react';
-
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { Routes } from './src/routes';
-
-import 'react-native-gesture-handler'
 
 import theme from './src/styles/theme';
 

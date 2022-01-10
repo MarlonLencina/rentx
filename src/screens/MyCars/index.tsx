@@ -25,6 +25,7 @@ import {
  } from './styles';
 import Car from '../../components/Car';
 import Load from '../../components/Load';
+import LoadAnimation from '../../components/LoadAnimation';
 
 interface CarScheduledProps {
     user_id: string;
@@ -72,7 +73,7 @@ const MyCars: React.FC = () => {
                 </SubTitle>
          </Header>
 
-{         loading ? <Load/> :
+{         loading ? <LoadAnimation/> :
         <Content>
         <Appointments>
             <AppointmentsTitle>

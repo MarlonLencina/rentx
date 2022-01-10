@@ -42,9 +42,6 @@ const Scheduling = () => {
     const theme = useTheme()
 
     const handleSchedulingDetails = () => {
-        if(!rentalPeriod.start || !rentalPeriod.end){
-            return Alert.alert("Voce precisa selecionar uma data de inicio e fim do aluguel")
-        }
 
         navigation.navigate("SchedulingDetails", {
             car,
@@ -120,7 +117,7 @@ const Scheduling = () => {
          </Content>
 
              <Footer>
-                 <Button onPress={() => {handleSchedulingDetails()}} title='Confirmar'/>
+                 <Button enabled={!!rentalPeriod.endFormatted} onPress={() => {handleSchedulingDetails()}} title='Confirmar'/>
              </Footer>
 
         </Container>

@@ -3,7 +3,7 @@ import { getBottomSpace, getStatusBarHeight } from "react-native-iphone-x-helper
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled(GestureHandlerRootView)`
 
 flex: 1;
 background-color: ${({theme}) => theme.colors.background_secundary};

@@ -12,7 +12,7 @@ import {useNavigation} from "@react-navigation/native"
 
 const SchedulingComplete = () => {
 
-    const navigation = useNavigation()
+    const navigation = useNavigation<any>()
 
     const {
         width

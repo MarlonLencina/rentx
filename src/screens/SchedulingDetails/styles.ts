@@ -10,7 +10,7 @@ background-color: ${({theme}) => theme.colors.background_secundary};
 
 `
 
-export const Header = styled.View`
+export const Header = styled(GestureHandlerRootView)`
 
 flex-direction: row;
 justify-content: space-between;

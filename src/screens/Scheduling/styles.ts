@@ -14,7 +14,7 @@ background-color: ${({theme}) => theme.colors.background_secundary};
 
 `
 
-export const Header = styled.View`
+export const Header = styled(GestureHandlerRootView)`
 
 width: 100%;
 height: 325px;

@@ -5,23 +5,18 @@ import { TouchableOpacityProps, View } from 'react-native';
 
  import Gasoline from "../../assets/gasoline.svg"
 import { RectButtonProps } from 'react-native-gesture-handler';
-
-interface ICarData {
-  brand: string;
-   name: string;
-   rent: {
-    period: string;
-    price: number;
-   },
-   thumbnail: string;
-}
+import { ICarPropsDTO } from '../../dto/ICarProps';
+import { getAccessoryIcon } from '../../utils/getAccessoryIcon';
 
  interface Props extends RectButtonProps {
-  onPress: () => void
-  data: ICarData;
+  onPress?: () => void
+  data: ICarPropsDTO;
  }
 
 const Car = ({data, onPress, ...rest}: Props) => {
+
+  const MotorIcon = getAccessoryIcon(data.fuel_type) 
+
   return (
     <Container onPress={onPress} {...rest} >
         <Details>
@@ -39,7 +34,7 @@ const Car = ({data, onPress, ...rest}: Props) => {
               </Price>
             </Rent>
             <Type>
-                <Gasoline/>
+                <MotorIcon/>
             </Type>
           </About>
         </Details>

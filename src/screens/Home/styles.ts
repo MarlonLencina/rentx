@@ -1,6 +1,8 @@
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { FlatListProps } from 'react-native';
+import { FlatList, GestureHandlerRootView, RectButton } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
+import { ICarPropsDTO } from '../../dto/ICarProps';
 
 export const Container = styled(GestureHandlerRootView)`
   flex: 1;
@@ -35,4 +37,25 @@ export const CarList = styled.FlatList.attrs({
     padding: 24
   },
   showVerticalScrollIndicator: false
-})``
+})`` as React.ComponentType as new <ICarPropsDTO>() => FlatList<ICarPropsDTO>;
+
+
+export const MyCarsButton = styled(RectButton)`
+
+width: 60px;
+height: 60px;
+
+align-items: center;
+justify-content: center;
+
+border-radius: 30px;
+
+background-color: ${({theme}) => theme.colors.main};
+
+position: absolute;
+bottom: 0;
+right: 0;
+
+margin: 0 22px 13px
+
+`
